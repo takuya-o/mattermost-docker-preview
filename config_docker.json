@@ -77,17 +77,17 @@
         "AmazonS3LowercaseBucket": false
     },
     "EmailSettings": {
-        "EnableSignUpWithEmail": true,
-        "EnableSignInWithEmail": true,
-        "EnableSignInWithUsername": true,
-        "SendEmailNotifications": false,
-        "RequireEmailVerification": false,
-        "FeedbackName": "",
-        "FeedbackEmail": "",
+        "EnableSignUpWithEmail": false,
+        "EnableSignInWithEmail": false,
+        "EnableSignInWithUsername": false,
+        "SendEmailNotifications": true,
+        "RequireEmailVerification": true,
+        "FeedbackName": "Mattermost Notification",
+        "FeedbackEmail": "mattermost@on-o.com",
         "SMTPUsername": "",
         "SMTPPassword": "",
-        "SMTPServer": "",
-        "SMTPPort": "",
+        "SMTPServer": "on-o.com",
+        "SMTPPort": "587",
         "ConnectionSecurity": "",
         "InviteSalt": "bjlSR4QqkXFBr7TP4oDzlfZmcNuH9YoS",
         "PasswordResetSalt": "vZ4DcKyVVRlKHHJpexcuXzojkE5PZ5eL",
@@ -115,13 +115,13 @@
         "SupportEmail": "feedback@mattermost.com"
     },
     "GitLabSettings": {
-        "Enable": false,
-        "Secret": "",
-        "Id": "",
+        "Enable": true,
+        "Secret": "9875dba63db5244831d7273729017b789ae98361bbb93de3377a2ab62f0acd60",
+        "Id": "87578fbd6532bf2ae1f4003683e1dc07a3e2406de81abe7d43b4388babb7ee17",
         "Scope": "",
-        "AuthEndpoint": "",
-        "TokenEndpoint": "",
-        "UserApiEndpoint": ""
+        "AuthEndpoint": "https://gitlab.on-o.com/oauth/authorize",
+        "TokenEndpoint": "https://gitlab.on-o.com/oauth/token",
+        "UserApiEndpoint": "https://gitlab.on-o.com/api/v3/user"
     },
     "GoogleSettings": {
         "Enable": false,
