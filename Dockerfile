@@ -16,9 +16,14 @@ ENV MYSQL_DATABASE=mattermost_test
 #
 WORKDIR /mm
 
+#Debian upgrade
+RUN apt-get update && apt-get upgrade -y && apt-get install -y ca-certificates
+RUN apt-get autoremove -y && apt-get clean all
+
 # Copy over files
 ADD https://releases.mattermost.com/3.2.0/mattermost-team-3.2.0-linux-amd64.tar.gz .
 RUN tar -zxvf ./mattermost-team-3.2.0-linux-amd64.tar.gz
+RUN rm ./mattermost-team-3.2.0-linux-amd64.tar.gz
 ADD config_docker.json ./mattermost/config/config_docker.json
 ADD docker-entry.sh . 
 
