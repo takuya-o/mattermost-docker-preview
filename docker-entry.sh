@@ -12,4 +12,8 @@ done
 
 echo "Starting platform"
 cd mattermost
-exec ./bin/platform -config=config/config_docker.json
+while true;do
+    ./bin/platform -config=config/config_docker.json
+    echo "Exit $? platform"
+    sleep 10
+done
