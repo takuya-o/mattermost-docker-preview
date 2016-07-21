@@ -10,8 +10,8 @@
 # db/app/webのコンテナを分けるならば https://github.com/mattermost/mattermost-docker を利用すると良い
 
 mattermost:
-  image: mattermost/mattermost-preview
-#  build: .
+#  image: mattermost/mattermost-preview
+  build: .
   restart: always
   volumes:
   - /etc/localtime:/etc/localtime:ro
