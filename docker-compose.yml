@@ -1,0 +1,24 @@
+# -*- coding: utf-8 -*-
+#
+# Ref:
+# http://sharply.hatenablog.com/entry/2016/03/05/163922
+# Local Machine Setup using Docker http://docs.mattermost.com/install/docker-local-machine.html
+
+# Ref:
+# PUBLIC | AUTOMATED BUILD mattermost/mattermost-preview
+#古いPUBLIC | AUTOMATED BUILD mattermost/platform  https://hub.docker.com/r/mattermost/platform/
+# db/app/webのコンテナを分けるならば https://github.com/mattermost/mattermost-docker を利用すると良い
+
+mattermost:
+  image: mattermost/mattermost-preview
+#  build: .
+  restart: always
+  volumes:
+  - /etc/localtime:/etc/localtime:ro
+  - ./mattermost-data:/mm/mattermost-data
+
+# dns: 192.168.193.1
+#  ports:
+#   - "8065:8065"
+
+#たまに docker exec "apt-get update;apt-get upgrade -y;apt-get autoremove -y;apt-get-all clean"してね

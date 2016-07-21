@@ -1,0 +1,37 @@
+# -*- coding: utf-8 -*-
+#テストは gitlab-runner exec shell -env PASS=mostest build 
+
+variables:
+  NAME: "mattermost"
+  #Project Variables
+  # PASS: "mostest"
+
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  tags:
+    - Shell
+  script:
+#  - docker-compose build --pull --force-rm
+#  - docker-compose run -e MYSQL_ROOT_PASSWORD=$PASS -e MYSQL_PASSWORD=$PASS $NAME -d
+  - docker-compose up -d
+  - sleep 5
+
+test:
+  stage: test
+  tags:
+    - Shell
+  script:
+  - CONTAINER=`docker-compose ps -q|head -1`
+  - curl -L http://`docker inspect -f "{{.NetworkSettings.IPAddress}}" $CONTAINER`:8065/
+  
+end:
+  stage: test
+  tags:
+    - Shell
+  script:
+  - docker-compose stop
+  - docker-compose rm -f
