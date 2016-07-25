@@ -8,6 +8,7 @@
 # PUBLIC | AUTOMATED BUILD mattermost/mattermost-preview
 #古いPUBLIC | AUTOMATED BUILD mattermost/platform  https://hub.docker.com/r/mattermost/platform/
 # db/app/webのコンテナを分けるならば https://github.com/mattermost/mattermost-docker を利用すると良い
+# 分けてないから作りなおすとmysql上のデータがなくなる。
 
 mattermost:
 #  image: mattermost/mattermost-preview
