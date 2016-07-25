@@ -97,6 +97,7 @@
         "RequireEmailVerification": true,
         "FeedbackName": "Mattermost Notification",
         "FeedbackEmail": "mattermost@on-o.com",
+        "FeedbackOrganization": "",
         "SMTPUsername": "",
         "SMTPPassword": "",
         "SMTPServer": "on-o.com",
