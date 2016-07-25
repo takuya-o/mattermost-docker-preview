@@ -17,8 +17,8 @@ mattermost:
   volumes:
   - /etc/localtime:/etc/localtime:ro
   - ./mattermost-data:/mm/mattermost-data
-
-# dns: 192.168.193.1
+  dns:
+  - 192.168.193.1
 #  ports:
 #   - "8065:8065"
 

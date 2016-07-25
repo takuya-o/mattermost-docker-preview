@@ -86,7 +86,7 @@
         "FeedbackEmail": "mattermost@on-o.com",
         "SMTPUsername": "",
         "SMTPPassword": "",
-        "SMTPServer": "192.168.193.134",
+        "SMTPServer": "on-o.com",
         "SMTPPort": "587",
         "ConnectionSecurity": "",
         "InviteSalt": "bjlSR4QqkXFBr7TP4oDzlfZmcNuH9YoS",
