@@ -1,15 +1,18 @@
 # Copyright (c) 2016 Mattermost, Inc. All Rights Reserved.
 # See License.txt for license information.
-FROM mysql:5.7
+FROM debian:jessie
 
 #
 # Configure SQL
 #
 
-ENV MYSQL_ROOT_PASSWORD=mostest
+ENV MYSQL_ROOT_PASSWORD=0909longpass!
 ENV MYSQL_USER=mmuser
-ENV MYSQL_PASSWORD=mostest
+ENV MYSQL_PASSWORD=mostests
 ENV MYSQL_DATABASE=mattermost_test
+
+ENV DEBIAN_FRONTEND		noninteractive
+ENV DEBCONF_NONINTERACTIVE_SEEN	true
 
 #
 # Configure Mattermost
@@ -17,7 +20,8 @@ ENV MYSQL_DATABASE=mattermost_test
 WORKDIR /mm
 
 #Debian upgrade
-RUN apt-get update && apt-get upgrade -y && apt-get install -y ca-certificates
+RUN apt-get update && apt-get upgrade -y
+RUN apt-get install -y ca-certificates mysql-client
 RUN apt-get autoremove -y && apt-get clean all
 
 # Copy over files
@@ -33,6 +37,9 @@ ENTRYPOINT ./docker-entry.sh
 # Create default storage directory
 RUN mkdir ./mattermost-data
 VOLUME ./mattermost-data
+
+# from mysql:5.7
+COPY docker-entrypoint.sh /entrypoint.sh
 
 # Ports
 EXPOSE 8065
