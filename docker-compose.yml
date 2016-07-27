@@ -16,7 +16,7 @@ mattermost:
   restart: always
   volumes:
   - /etc/localtime:/etc/localtime:ro
-  - ./mattermost-data:/mm/mattermost-data
+  - ./mattermost-data:/mm/mattermost/mattermost-data
   dns:
   - 192.168.193.134
   - 192.168.193.1

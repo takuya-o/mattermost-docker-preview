@@ -10,6 +10,7 @@ ENV MYSQL_ROOT_PASSWORD=0909longpass!
 ENV MYSQL_USER=mmuser
 ENV MYSQL_PASSWORD=mostests
 ENV MYSQL_DATABASE=mattermost_test
+ENV MYSQL_SERVER=on-o.com
 
 ENV DEBIAN_FRONTEND		noninteractive
 ENV DEBCONF_NONINTERACTIVE_SEEN	true
@@ -29,14 +30,18 @@ ADD https://releases.mattermost.com/3.2.0/mattermost-team-3.2.0-linux-amd64.tar.
 RUN tar -zxvf ./mattermost-team-3.2.0-linux-amd64.tar.gz
 RUN rm ./mattermost-team-3.2.0-linux-amd64.tar.gz
 ADD config_docker.json ./mattermost/config/config_docker.json
-ADD docker-entry.sh . 
+ADD docker-entry.sh .
+
+ADD envReplace.pl . 
+RUN perl -p -i.bak envReplace.pl ./mattermost/config/config_docker.json
+RUN rm envReplace.pl ./mattermost/config/config_docker.json.bak
 
 RUN chmod +x ./docker-entry.sh
 ENTRYPOINT ./docker-entry.sh
 
 # Create default storage directory
-RUN mkdir ./mattermost-data
-VOLUME ./mattermost-data
+RUN mkdir ./mattermost/mattermost-data
+VOLUME ./mattermost/mattermost-data
 
 # from mysql:5.7
 COPY docker-entrypoint.sh /entrypoint.sh
