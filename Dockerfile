@@ -15,6 +15,9 @@ ENV MYSQL_SERVER=on-o.com
 ENV DEBIAN_FRONTEND		noninteractive
 ENV DEBCONF_NONINTERACTIVE_SEEN	true
 
+#ENV TARFILE=mattermost-team-3.2.0-linux-amd64.tar.gz
+ENV TARFILE=mattermost-team-linux-amd64.tar.gz
+
 #
 # Configure Mattermost
 #
@@ -26,9 +29,11 @@ RUN apt-get install -y ca-certificates mysql-client
 RUN apt-get autoremove -y && apt-get clean all
 
 # Copy over files
-ADD https://releases.mattermost.com/3.2.0/mattermost-team-3.2.0-linux-amd64.tar.gz .
-RUN tar -zxvf ./mattermost-team-3.2.0-linux-amd64.tar.gz
-RUN rm ./mattermost-team-3.2.0-linux-amd64.tar.gz
+#ADD https://releases.mattermost.com/3.2.0/$TARFILE .
+ADD $TARFILE .
+#ADDでtar fileを指定すると自動展開
+#RUN tar -zxvf $TARFILE
+#RUN rm $TARFILE
 ADD config_docker.json ./mattermost/config/config_docker.json
 ADD docker-entry.sh .
 
