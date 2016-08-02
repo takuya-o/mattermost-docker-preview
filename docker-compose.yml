@@ -17,6 +17,8 @@ mattermost:
   volumes:
   - /etc/localtime:/etc/localtime:ro
   - ./mattermost-data:/mm/mattermost/mattermost-data
+  #ドメインを外向きに
+  domainname: on-o.com
   dns:
   - 192.168.193.134
   - 192.168.193.1
