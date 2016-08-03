@@ -25,7 +25,8 @@
         "WebsocketPort": 80,
         "WebserverMode": "regular",
         "EnableCustomEmoji": false,
-        "RestrictCustomEmojiCreation": "all"
+        "RestrictCustomEmojiCreation": "all",
+        "OutsideURL": "https://mattermost.on-o.com"
     },
     "TeamSettings": {
         "SiteName": "Mattermost",
