@@ -1,5 +1,6 @@
 {
     "ServiceSettings": {
+        "SiteURL": "https://mattermost.on-o.com",
         "ListenAddress": ":8065",
         "MaximumLoginAttempts": 10,
         "SegmentDeveloperKey": "",
@@ -25,8 +26,7 @@
         "WebsocketPort": 80,
         "WebserverMode": "regular",
         "EnableCustomEmoji": false,
-        "RestrictCustomEmojiCreation": "all",
-        "OutsideURL": "https://mattermost.on-o.com"
+        "RestrictCustomEmojiCreation": "all"
     },
     "TeamSettings": {
         "SiteName": "Mattermost",
