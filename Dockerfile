@@ -20,6 +20,9 @@ WORKDIR /mm
 ADD https://releases.mattermost.com/3.3.0/mattermost-team-3.3.0-linux-amd64.tar.gz .
 RUN tar -zxvf ./mattermost-team-3.3.0-linux-amd64.tar.gz
 ADD config_docker.json ./mattermost/config/config_docker.json
+ADD envReplace.pl .
+RUN perl -p -i.bak envReplace.pl ./mattermost/config/config_docker.json
+RUN rm envReplace.pl ./mattermost/config/config_docker.json.bak
 ADD docker-entry.sh . 
 
 RUN chmod +x ./docker-entry.sh
